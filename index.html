@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive AI Engineer Roadmap</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Montserrat:wghts=400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #6c757d;
+            --accent-color: #ffc107;
+            --background-color: #f8f9fa;
+            --card-background: #ffffff;
+            --text-color: #333;
+            --heading-color: #212529;
+            --link-color: #0056b3;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, var(--primary-color), #0056b3);
+            color: white;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 3em;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+            font-weight: 300;
+        }
+
+        .roadmap-section {
+            margin-bottom: 60px;
+        }
+
+        .phase-title {
+            text-align: center;
+            font-size: 2.5em;
+            font-weight: 700;
+            color: var(--heading-color);
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .phase-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .chapter-card {
+            background: var(--card-background);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 30px;
+            margin-bottom: 30px;
+            border-left: 5px solid var(--primary-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .chapter-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .chapter-title {
+            font-size: 2em;
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-family: 'Montserrat', sans-serif;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 10px;
+        }
+
+        .chapter-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+        }
+
+        .lesson {
+            margin-bottom: 25px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .lesson::before {
+            content: '•';
+            color: var(--primary-color);
+            font-size: 1.5em;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+
+        .lesson-title {
+            font-weight: 700;
+            font-size: 1.2em;
+            margin: 0;
+            color: var(--heading-color);
+        }
+
+        .resource-link {
+            color: var(--link-color);
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.2s ease;
+        }
+
+        .resource-link:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        .project-goal {
+            background-color: #e9f5ff;
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .project-goal h4 {
+            margin: 0 0 10px 0;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .project-goal ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin: 10px 0 0 0;
+        }
+
+        .project-goal li {
+            margin-bottom: 10px;
+        }
+
+        .additional-projects {
+            background-color: #f1f8e9;
+            border-left: 4px solid #8bc34a;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 30px;
+        }
+
+        .additional-projects h4 {
+            margin-top: 0;
+            color: #558b2f;
+        }
+
+        .note {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .project-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .project-table th, .project-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .project-table th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .project-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: var(--heading-color);
+            color: white;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="container">
+        <h1>Comprehensive AI Engineer Roadmap</h1>
+        <p>From First Principles to Production</p>
+        <p>A meticulously structured, project-driven learning path for aspiring AI Engineers.</p>
+    </div>
+</div>
+
+<div class="container">
+
+    <!-- Phase 0 -->
+    <div class="roadmap-section" id="phase0">
+        <h2 class="phase-title">Phase 0: Core Programming Fundamentals</h2>
+        <p style="text-align: center; font-style: italic;">"Build the bedrock before the skyscraper." All skills in this phase are language-agnostic.</p>
+
+        <div class="chapter-card">
+            <h3 class="chapter-title">Chapter 1: Python Fundamentals for Problem Solving</h3>
+            <img src="https://via.placeholder.com/800x200?text=Core+Programming+Fundamentals" alt="Chapter 1 Image">
+            <div class="lesson">
+                <h4 class="lesson-title">Lesson 1.1: Foundational Concepts & Data Structures</h4>
+                <p><strong>Theory:</strong> Learn core concepts like variables, data types, and control flow (loops, conditionals). Dive into Python's built-in data structures (lists, dictionaries, tuples, and sets) and their unique use cases.</p>
+                <p><strong>Recommended Resource:</strong> <a class="resource-link" href="https://www.kaggle.com/learn/python" target="_blank">Kaggle Learn: Python</a>, <a class="resource-link" href="https://www.learnpython.org/" target="_blank">LearnPython.org</a></p>
+                <p><strong>Practice:</strong> Implement functions to manipulate lists, dictionaries, and strings. Solve problems that require conditional logic, loops, and basic data structures.</p>
+            </div>
+            <div class="lesson">
+                <h4 class="lesson-title">Lesson 1.2: Algorithms and Modular Code</h4>
+                <p><strong>Theory:</strong> Understand fundamental algorithms and their efficiency. Grasp the importance of writing clean, reusable, and modular code using functions, classes, and modules.</p>
+                <p><strong>Recommended Resource:</strong> <a class="resource-link" href="https://www.geeksforgeeks.org/data-structures/" target="_blank">GeeksforGeeks: Data Structures</a>, <a class="resource-link" href="https://www.geeksforgeeks.org/fundamentals-of-algorithms/" target="_blank">GeeksforGeeks: Algorithms</a></p>
+                <p><strong>Practice:</strong> Implement a sorting algorithm (e.g., Bubble Sort, Merge Sort) from scratch. Write code to traverse a tree structure. Build a reusable module for data normalization.</p>
+            </div>
+            <div class="project-goal">
+                <h4>🎯 End-of-Chapter Project: Build a Simple Text Analyzer</h4>
+                <p><strong>Goal:</strong> Create a Python script that reads a text file and analyzes its content using only core Python data structures and logic. This project solidifies your grasp of loops, dictionaries, and file I/O.</p>
+                <p><strong>Detailed Steps:</strong></p>
+                <ul>
+                    <li><strong>1. Word Frequency Counter:</strong> Write a function that counts the frequency of each word in a given text file and stores the result in a dictionary.</li>
+                    <li><strong>2. Top 10 Words:</strong> Display the top 10 most frequent words and their counts.</li>
+                    <li><strong>3. Character & Sentence Count:</strong> Calculate the total number of characters, words, and sentences in the file.</li>
+                    <li><strong>4. Punctuation & Case:</strong> Handle punctuation and case sensitivity to ensure accurate counting.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Phase 1 -->
+    <div class="roadmap-section" id="phase1">
+        <h2 class="phase-title">Phase 1: Mathematical Foundations & Data Handling</h2>
+        <p style="text-align: center; font-style: italic;">"Implement everything from scratch." No external ML libraries allowed.</p>
+
+        <div class="chapter-card">
+            <h3 class="chapter-title">Chapter 2: Linear Algebra & Calculus with NumPy</h3>
+            <img src="https://via.placeholder.com/800x200?text=Programming+%26+Math+Foundations" alt="Chapter 2 Image">
+            <div class="lesson">
+                <h4 class="lesson-title">Lesson 2.1: NumPy for Vectorization & Broadcasting</h4>
+                <p><strong>Theory:</strong> Understand why NumPy's vectorized operations are more efficient than Python loops. Grasp core concepts like broadcasting, which allows operations on arrays of different shapes.</p>
+                <p><strong>Recommended Resource:</strong> <a class="resource-link" href="http://cs231n.github.io/python-numpy-tutorial/" target="_blank">Stanford CS231n Python Numpy Tutorial</a>, <a class="resource-link" href="https://numpy.org/learn/" target="_blank">NumPy Learn</a></p>
+                <p><strong>Practice:</strong> Implement a function for a matrix-vector product. Compare the performance of a manual matrix multiplication loop to <code>np.dot</code>. Implement broadcasting to add a vector to each row of a matrix without a loop.</p>
+            </div>
+            <div class="lesson">
+                <h4 class="lesson-title">Lesson 2.2: Calculus and Optimization with Gradient Descent</h4>
+                <p><strong>Theory:</strong> Learn the concept of a derivative as the slope of a function and its role in finding a minimum. Understand the iterative process of Gradient Descent.</p>
+                <p><strong>Recommended Resource:</strong> <a class="resource-link" href="https://realpython.com/gradient-descent-algorithm-python/" target="_blank">Real Python: Gradient Descent Algorithm</a></p>
+                <p><strong>Practice:</strong> Write a Python function to calculate the derivative of a simple polynomial. Then, write a gradient descent loop to iteratively find the minimum of that function. Modify the function to include a learning rate and observe its effect on convergence.</p>
+            </div>
+            <div class="project-goal">
+                <h4>🎯 End-of-Chapter Project: Build a "Gradient Descent Visualizer"</h4>
+                <p><strong>Goal:</strong> Create an animated visualization of the gradient descent process to solidify the connection between calculus and optimization.</p>
+                <p><strong>Detailed Steps:</strong></p>
+                <ul>
+                    <li><strong>1. Define the Function:</strong> Define a simple convex function (e.g., a parabola) and its analytical derivative.</li>
+                    <li><strong>2. Implement Gradient Descent:</strong> Write a Python loop to implement the gradient descent algorithm, iteratively updating a parameter's value.</li>
+                    <li><strong>3. Animate the Process:</strong> Use <code>matplotlib</code> to plot the function and animate a point as it descends along the curve over several iterations, visually demonstrating how the algorithm finds the minimum.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="chapter-card">
+            <h3 class="chapter-title">Chapter 3: Probability and Statistics for AI</h3>
+            <img src="https://via.placeholder.com/800x200?text=Probability+%26+Statistics" alt="Chapter 3 Image">
+            <div class="lesson">
+                <h4 class="lesson-title">Lesson 3.1: Distributions and Randomness</h4>
+                <p><strong>Theory:</strong> Understand different probability distributions (Normal, Binomial, Poisson). Grasp the meaning of expected value and variance. Learn how to use random sampling to simulate data.</p>
+                <p><strong>Recommended Resource:</strong> <a class="resource-link" href="https://numpy.org/doc/stable/reference/random/index.html" target="_blank">NumPy Random Module Documentation</a></p>
+                <p><strong>Practice:</strong> Generate random data from a normal distribution and calculate its mean and standard deviation to verify the distribution's properties. Use random sampling to create a synthetic dataset for a simple classification task.</p>
+            </div>
+            <div class="lesson">
+                <h4 class="lesson-title">Lesson 3.2: Statistical Inference and Data Preprocessing</h4>
+                <p><strong>Theory:</strong> Understand key statistical concepts like hypothesis testing, p-values, and correlation vs. causation. Learn about common data preprocessing steps like handling missing values and feature scaling.</p>
+                <p><strong>Recommended Resource:</strong> <a class="resource-link" href="https://pandas.pydata.org/docs/user_guide/10min.html" target="_blank">Pandas: 10 minutes to pandas</a></p>
+                <p><strong>Practice:</strong> Use Pandas to load a dataset. Write functions to handle missing values by replacing them with the column mean. Implement a Min-Max normalization function and a feature standardization function from scratch using NumPy.</p>
+            </div>
+            <div class="project-goal">
+                <h4>🎯 End-of-Chapter Project: Build a NumPy-Based Data Preprocessor</h4>
+                <p><strong>Goal:</strong> Create a reusable Python module that performs essential data preprocessing steps using only Python and NumPy. This is the bedrock for all future implementations.</p>
+                <p><strong>Detailed Steps:</strong></p>
+                <ul>
+                    <li><strong>1. Load the Data:</strong> Start by loading a simple CSV file (e.g., a simplified version of the Iris dataset) into a NumPy array.</li>
+                    <li><strong>2. Handle Missing Values:</strong> Write a function that takes a NumPy array and a column index. Inside this function, find all <code>NaN</code> values and replace them with the mean of that column.</li>
+                    <li><strong>3. Implement Min-Max Normalization:</strong> Create a function that scales a given feature column (a 1D NumPy array) to a range of 0 to 1 using the formula $$(x - min) / (max - min)$$.</li>
+                    <li><strong>4. Split the Data:</strong> Write a function that shuffles the rows of your preprocessed NumPy array and then splits it into two separate arrays: 80% for training and 20% for testing. Ensure the shuffling is reproducible for consistency.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Phase 2 -->
+    <div class="roadmap-section" id="phase2">
+        <h2 class="phase-title">Phase 2: Core ML Algorithms</h2>
+        <p style="text-align: center; font-style: italic;">From Scratch → scikit-learn</p>
+
+        <div class="chapter-card">
+            <h3 class="chapter-title">Chapter 4: Supervised Learning from First Principles</h3>
+            <img src="https://via.placeholder.com/800x200?text=Supervised+Learning" alt="Chapter 4 Image">
+            <div class="lesson">
+                <h4 class="lesson-title">Lesson 4.1: Linear & Logistic Regression from Scratch</h4>
+                <p><strong>Theory:</strong> Understand the hypothesis function and cost function for both linear regression and logistic regression. Learn the mathematical derivation of gradient descent for each model.</p>
+                <p><strong>Recommended Resource:</strong> <a class="resource-link" href="https://www.geeksforgeeks.org/linear-regression-from-scratch-in-python/" target="_blank">GeeksforGeeks: Linear Regression from Scratch</a>, <a class="resource-link" href="https://www.insidelearningmachines.com/articles/logistic-regression-from-scratch/" target="_blank">InsideLearningMachines: Logistic Regression from Scratch</a></p>
+                <p><strong>Practice:</strong> Implement linear regression using both the Normal Equation $$( \theta = (X^T X)^{-1} X^T y )$$ and Gradient Descent. Then, create a logistic regression classifier on a simple binary dataset, implementing the sigmoid activation function and the log-likelihood cost function.</p>
+            </div>
+            <div class="lesson">
+                <h4 class="lesson-title">Lesson 4.2: SVM, Decision Trees & K-NN from Scratch</h4>
+                <p><strong>Theory:</strong> Grasp the core concepts behind these algorithms, such as the hyperplane in SVM, the concept of Information Gain in Decision Trees, and distance metrics in K-NN.</p>
+                <p><strong>Recommended Resource:</strong> <a class="resource-link" href="https://github.com/eriklindernoren/ML-From-Scratch/blob/master/mlfromscratch/supervised_learning/decision_tree.py" target="_blank">GitHub: Decision Tree from Scratch</a>, <a class="resource-link" href="https://www.machinelearningplus.com/machine-learning/k-nearest-neighbors-algorithm-in-python/" target="_blank">Machine Learning Plus: K-NN</a></p>
+                <p><strong>Practice:</strong> Implement a decision tree classifier. Manually calculate Information Gain to select the best split. Also, implement the K-NN algorithm by calculating Euclidean distance to find the k-nearest neighbors.</p>
+            </div>
+            <div class="project-goal">
+                <h4>🎯 End-of-Chapter Project: Build a Custom Predictive Modeling Pipeline</h4>
+                <p><strong>Goal:</strong> Create an end-to-end pipeline that takes a dataset, preprocesses it, and then uses your from-scratch Linear and Logistic Regression models to make predictions and evaluate their performance.</p>
+                <p><strong>Detailed Steps:</strong></p>
+                <ul>
+                    <li><strong>1. Data Preparation:</strong> Choose a suitable dataset. For Linear Regression, use a dataset with a continuous target variable (e.g., House Price Prediction). For Logistic Regression, use a classification dataset (e.g., Iris or Breast Cancer).</li>
+                    <li><strong>2. Preprocessing:</strong> Reuse your <code>Data Preprocessor</code> from Phase 1 to load the data and split it.</li>
+                    <li><strong>3. Model Training:</strong> Train your from-scratch Linear Regression model and Logistic Regression model on the training data.</li>
+                    <li><strong>4. Evaluation:</strong> For the Linear Regression model, calculate and report the Mean Squared Error (MSE). For the Logistic Regression model, calculate and report the accuracy and a confusion matrix on the test set.</li>
+                    <li><strong>5. Comparison:</strong> Compare the performance of your from-scratch models to their scikit-learn counterparts (<code>sklearn.linear_model.LinearRegression</code> and <code>sklearn.linear_model.LogisticRegression</code>) to validate your implementations.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="chapter-card">
+            <h3 class="chapter-title">Chapter 5: Unsupervised Learning & Dimensionality Reduction</h3>
+            <img src="https://via.placeholder.com/800x200?text=Unsupervised+Learning" alt="Chapter 5 Image">
+            <div class="lesson">
+                <h4 class="lesson-title">Lesson 5.1: K-Means Clustering from Scratch</h4>
+                <p><strong>Theory:</strong> Understand the iterative nature of K-Means clustering. Grasp the role of distance metrics (e.g., Euclidean distance) and the process of updating centroids.</p>
+                <p><strong>Recommended Resource:</strong> <a class="resource-link" href="https://flothesof.github.io/k-means-numpy.html" target="_blank">FloThesof's K-Means Tutorial</a></p>
+                <p><strong>Practice:</strong> Apply your manual K-Means algorithm to a simple dataset and visualize the clusters. Implement the iterative process of assigning data points to the nearest centroid and updating the centroids until convergence.</p>
+            </div>
+            <div class="lesson">
+                <h4 class="lesson-title">Lesson 5.2: Principal Component Analysis (PCA) from Scratch</h4>
+                <p><strong>Theory:</strong> Learn the core concepts behind PCA: covariance matrices, eigenvalues, and eigenvectors. Understand how projecting data onto principal components reduces dimensionality while preserving variance.</p>
+                <p><strong>Recommended Resource:</strong> <a class="resource-link" href="https://towardsdatascience.com/pca-from-scratch-in-python-6c2e171b3e8" target="_blank">Towards Data Science: PCA from Scratch</a></p>
+                <p><strong>Practice:</strong> Implement the PCA algorithm to reduce the dimensionality of a dataset. This involves calculating the covariance matrix, finding the eigenvalues and eigenvectors, and projecting the data onto the principal components.</p>
+            </div>
+            <div class="project-goal">
+                <h4>🎯 End-of-Chapter Project: Build a Custom Clustering & Visualization Pipeline</h4>
+                <p><strong>Goal:</strong> Create a pipeline that performs dimensionality reduction and clustering on a dataset, then visualizes the results.</p>
+                <p><strong>Detailed Steps:</strong></p>
+                <ul>
+                    <li><strong>1. Data Preparation:</strong> Use the Iris dataset or a similar classification dataset.</li>
+                    <li><strong>2. Dimensionality Reduction:</strong> Apply your from-scratch PCA implementation to reduce the 4-dimensional data to 2 dimensions.</li>
+                    <li><strong>3. Clustering:</strong> Apply your from-scratch K-Means implementation to the 2-dimensional data.</li>
+                    <li><strong>4. Visualization:</strong> Use <code>matplotlib</code> to create a 2D scatter plot of the clustered data, color-coding the points by their assigned cluster. Compare this to a plot of the original data colored by their true labels to see how well your algorithm performed.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="chapter-card">
+            <h3 class="chapter-title">Chapter 6: Ensemble Methods from Scratch</h3>
+            <img src="https://via.placeholder.com/800x200?text=Ensemble+Methods" alt="Chapter 6 Image">
+            <div class="lesson">
+                <h4 class="lesson-title">Lesson 6.1: Random Forests (Bagging) from Scratch</h4>
+                <p><strong>Theory:</strong> Understand the concept of "bagging" (Bootstrap Aggregating) and how it reduces variance in a model. Learn how a Random Forest classifier creates multiple decision trees on random subsets of data and features to produce a more robust and accurate prediction.</p>
+                <p><strong>Recommended Resource:</strong> <a class="resource-link" href="https://towardsdatascience.com/random-forest-from-scratch-in-python-6e109d311905" target="_blank">Towards Data Science: Random Forest from Scratch</a></p>
+                <p><strong>Practice:</strong> Implement a `RandomForestClassifier` class that builds a collection of your from-scratch Decision Trees. The class should take a number of estimators, max features, and max depth as parameters. The `fit` method should train each tree on a bootstrapped sample of the data, and the `predict` method should aggregate the results via a majority vote.</p>
+            </div>
+            <div class="lesson">
+                <h4 class="lesson-title">Lesson 6.2: Gradient Boosting (Conceptual)</h4>
+                <p><strong>Theory:</strong> Grasp the "boosting" concept, where models are built sequentially, with each new model trying to correct the errors of the previous ones. Understand the core idea behind Gradient Boosting and how it optimizes a cost function by following its negative gradient.</p>
+                <p><strong>Recommended Resource:</strong> <a class="resource-link" href="https://explained.ai/gradient-boosting/index.html" target="_blank">Gradient Boosting Explained</a></p>
+                <p><strong>Practice:</strong> No coding is required, but you should be able to explain the difference between a Random Forest and a Gradient Boosting Machine to a friend. Sketch a diagram showing the iterative process of Gradient Boosting for a simple regression problem.</p>
+            </div>
+            <div class="project-goal">
+                <h4>🎯 End-of-Chapter Project: Build a Custom Random Forest Classifier</h4>
+                <p><strong>Goal:</strong> Create a full-featured Random Forest classifier from scratch and compare its performance against your single Decision Tree classifier and the scikit-learn version.</p>
+                <p><strong>Detailed Steps:</strong></p>
+                <ul>
+                    <li><strong>1. Reuse Your Decision Tree:</strong> Start with the Decision Tree you built in Chapter 4. Ensure it has a parameter to limit its maximum depth.</li>
+                    <li><strong>2. Implement Bootstrapping:</strong> Create a function that randomly samples your dataset with replacement to create a new training set for each tree in the forest.</li>
+                    <li><strong>3. Build the Forest:</strong> In your `RandomForestClassifier` class, implement the `fit` method to build a number of Decision Trees (e.g., 100). For each tree, select a random subset of features to consider at each split.</li>
+                    <li><strong>4. Make Predictions:</strong> Implement the `predict` method to get a prediction from each tree and then use a majority vote to determine the final classification.</li>
+                    <li><strong>5. Evaluate Performance:</strong> Compare the accuracy, precision, and recall of your Random Forest model to your single Decision Tree model on a test set. This will visually demonstrate the power of ensembling.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Phase 3 -->
+    <div class="roadmap-section" id="phase3">
+        <h2 class="phase-title">Phase 3: Deep Learning & Advanced Architectures</h2>
+        <p style="text-align: center; font-style: italic;">From Scratch → PyTorch/TensorFlow</p>
+
+        <div class="chapter-card">
+            <h3 class="chapter-title">Chapter 7: Neural Networks from First Principles</h3>
+            <img src="https://via.placeholder.com/800x200?text=Neural+Networks" alt="Chapter 7 Image">
+            <div class="lesson">
+                <h4 class="lesson-title">Lesson 7.1: The Perceptron & Backpropagation from Scratch</h4>
+                <p><strong>Theory:</strong> Understand the core concepts of a neural network: layers, weights, biases, and activation functions. Grasp the inner workings of backpropagation—the chain rule applied to compute gradients.</p>
+                <p><strong>Recommended Resource:</strong> <a class="resource-link" href="https://github.com/rasbt/machine-learning-book/blob/main/ch13/perceptron.ipynb" target="_blank">Neural Networks from Scratch</a></p>
+                <p><strong>Practice:</strong> Manually compute the gradients for a simple 3-layer network with one training example. Implement the forward and backward passes for a feedforward neural network using only NumPy.</p>
+            </div>
+            <div class="lesson">
+                <h4 class="lesson-title">Lesson 7.2: Transition to Deep Learning Frameworks</h4>
+                <p><strong>Theory:</strong> Learn the basics of a modern deep learning framework like PyTorch. Understand the concepts of Tensors, automatic differentiation, and the `nn.Module` class for building models.</p>
+                <p><strong>Recommended Resource:</strong> <a class="resource-link" href="https://pytorch.org/tutorials/beginner/basics/intro.html" target="_blank">PyTorch Tutorials: Learn the Basics</a></p>
+                <p><strong>Practice:</strong> Re-implement your multi-layer perceptron using PyTorch and compare the performance. Use PyTorch's automatic differentiation to calculate gradients and update weights.</p>
+            </div>
+            <div class="project-goal">
+                <h4>🎯 End-of-Chapter Project: Build a NumPy-only Digit Recognizer</h4>
+                <p><strong>Goal:</strong> Implement a full neural network from scratch using only NumPy to classify handwritten digits from the MNIST dataset. The project will involve manual backpropagation and an end-to-end training loop.</p>
+                <p><strong>Detailed Steps:</strong></p>
+                <ul>
+                    <li><strong>1. Data Preparation:</strong> Load the MNIST dataset and preprocess the images into a format suitable for your network (e.g., flatten the images into 1D vectors and normalize pixel values).</li>
+                    <li><strong>2. Network Architecture:</strong> Design a multi-layer perceptron with at least one hidden layer. Implement all layers (input, hidden, output) and activation functions (e.g., sigmoid or ReLU) using NumPy.</li>
+                    <li><strong>3. Backpropagation:</strong> This is the core of the project. Manually derive and implement the backward pass to compute the gradients of the loss function with respect to each weight and bias.</li>
+                    <li><strong>4. Training Loop:</strong> Create the training loop that iterates through the dataset, performs forward and backward passes, and updates the weights using an optimizer like Stochastic Gradient Descent.</li>
+                    <li><strong>5. Evaluation:</strong> After training, evaluate your network's accuracy on the test set.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="chapter-card">
+            <h3 class="chapter-title">Chapter 8: CNNs, RNNs & Attention Mechanisms</h3>
+            <img src="https://via.placeholder.com/800x200?text=CNNs+%26+RNNs" alt="Chapter 8 Image">
+            <div class="lesson">
+                <h4 class="lesson-title">Lesson 8.1: Convolutional Neural Networks from Scratch</h4>
+                <p><strong>Theory:</strong> Understand the concepts of convolution, pooling, and feature maps. Learn how these operations enable a network to automatically learn hierarchical features from image data.</p>
+                <p><strong>Recommended Resource:</strong> <a class="resource-link" href="https://www.quarkml.com/2023/07/build-a-cnn-from-scratch-using-python.html" target="_blank">QuarkML: Build a CNN from Scratch</a></p>
+                <p><strong>Practice:</strong> Implement a 2D convolution function and a simple max-pooling function. Manually apply a filter over an input array and compute the output. Build a full CNN to classify images from a dataset like CIFAR-10, manually coding the convolutional, pooling, and fully connected layers.</p>
+            </div>
+            <div class="lesson">
+                <h4 class="lesson-title">Lesson 8.2: Recurrent Neural Networks (RNNs) & Attention</h4>
+                <p><strong>Theory:</strong> Understand the concept of recurrent connections for processing sequential data. Learn the core idea behind the attention mechanism: allowing the model to focus on specific parts of the input sequence. Grasp the role of Query, Key, and Value vectors.</p>
+                <p><strong>Recommended Resource:</strong> <a class="resource-link" href="https://www.kaggle.com/code/shravan344/recurrent-neural-network-from-scratch/notebook" target="_blank">Kaggle: RNN from Scratch</a></p>
+                <p><strong>Practice:</strong> Implement a simple RNN that processes a sequence and produces an output. Manually implement the forward and backward passes, including the BPTT (Backpropagation Through Time) algorithm. Build a simple attention block from scratch using NumPy to apply it to a sequence of vectors.</p>
+            </div>
+            <div class="project-goal">
+                <h4>🎯 End-of-Chapter Project: Build a Feature Extractor & Sequence Classifier</h4>
+                <p><strong>Goal:</strong> Create a project with two parts. Part 1 will build an image feature extractor with your CNN, and Part 2 will build a character-level text classifier with your RNN and attention mechanism.</p>
+                <p><strong>Detailed Steps:</strong></p>
+                <ul>
+                    <li><strong>1. Image Feature Extractor:</strong> Use your from-scratch Convolution and MaxPool classes from Lesson 8.1 to process an input image and produce a feature map. Visualize the output of each layer to see how features are extracted.</li>
+                    <li><strong>2. Text Classifier:</strong> Choose a simple text dataset (e.g., a few sentences) and classify it by passing it through your from-scratch RNN with the attention mechanism. Manually trace the attention scores to see what parts of the input sequence the model is "focusing" on.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Phase 4 -->
+    <div class="roadmap-section" id="phase4">
+        <h2 class="phase-title">Phase 4: Systems Integration & MLOps</h2>
+        <p style="text-align: center; font-style: italic;">All skills converge to build a professional-grade portfolio.</p>
+
+        <div class="chapter-card">
+            <h3 class="chapter-title">Chapter 9: C/C++ Integration & Performance Engineering</h3>
+            <img src="https://via.placeholder.com/800x200?text=Advanced+Systems" alt="Chapter 9 Image">
+            <div class="lesson">
+                <h4 class="lesson-title">Lesson 9.1: Extending Python with C/C++</h4>
+                <p><strong>Theory:</strong> Understand the limitations of Python for performance-critical tasks and the role of C/C++ extensions. Learn how `pybind11` simplifies the binding process, allowing you to pass NumPy arrays between Python and C++ without data copying.</p>
+                <p><strong>Recommended Resource:</strong> <a class="resource-link" href="https://pybind11.readthedocs.io/en/stable/basics.html" target="_blank">The pybind11 Documentation</a>, <a class="resource-link" href="https://docs.python.org/3/extending/extending.html" target="_blank">Python C API</a></p>
+                <p><strong>Practice:</strong> Implement a performance-critical operation from your neural network in C++ and benchmark it against your NumPy implementation. Use <code>pybind11</code> to bind the function.</p>
+            </div>
+            <div class="lesson">
+                <h4 class="lesson-title">Lesson 9.2: GPU Acceleration (Conceptual)</h4>
+                <p><strong>Theory:</strong> Read about the basics of parallel computing with GPUs. Understand the concepts of threads, blocks, and grids in the context of CUDA programming, and how deep learning frameworks like PyTorch and TensorFlow leverage this hardware.</p>
+                <p><strong>Recommended Resource:</strong> <a class="resource-link" href="https://www.youtube.com/watch?v=n_i-h1S_n8M" target="_blank">NVIDIA: Introduction to CUDA</a></p>
+                <p><strong>Practice:</strong> No coding is required in this lesson. Instead, focus on understanding the concepts and drawing a diagram of how a matrix multiplication operation is parallelized on a GPU.</p>
+            </div>
+            <div class="project-goal">
+                <h4>🎯 End-of-Chapter Project: Optimize a Neural Network with a C++ Extension</h4>
+                <p><strong>Goal:</strong> Take a performance-critical part of your NumPy-only neural network from Phase 3, such as the forward pass of a dense layer, and reimplement it in C++ using `pybind11`. This project demonstrates a core skill of an AI Engineer: identifying and optimizing performance bottlenecks.</p>
+                <p><strong>Detailed Steps:</strong></p>
+                <ul>
+                    <li><strong>1. Identify the Bottleneck:</strong> Profile your NumPy-only neural network to find the most time-consuming part of the code. This will likely be the matrix multiplication in the forward pass.</li>
+                    <li><strong>2. Write the C++ Function:</strong> Create a C++ function that performs matrix multiplication. Use `pybind11` to handle the input and output NumPy arrays efficiently without data copying.</li>
+                    <li><strong>3. Build and Link:</strong> Use CMake to compile your C++ code into a shared library that can be imported by Python.</li>
+                    <li><strong>4. Integrate with Python:</strong> Modify your Python neural network code to call your new, optimized C++ function for the forward pass.</li>
+                    <li><strong>5. Benchmark:</strong> Compare the execution time of the original NumPy version with the new C++-optimized version.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="chapter-card">
+            <h3 class="chapter-title">Chapter 10: Model Deployment & MLOps</h3>
+            <img src="https://via.placeholder.com/800x200?text=Model+Deployment" alt="Chapter 10 Image">
+            <div class="lesson">
+                <h4 class="lesson-title">Lesson 10.1: Model Serialization & API Creation</h4>
+                <p><strong>Theory:</strong> Learn the importance of saving and loading trained models. Understand the fundamentals of building a web API to serve machine learning predictions as a service.</p>
+                <p><strong>Recommended Resource:</strong> <a class="resource-link" href="https://www.datacamp.com/tutorial/machine-learning-with-flask" target="_blank">DataCamp: Deploying an ML Model with Flask</a></p>
+                <p><strong>Practice:</strong> Use <code>pickle</code> to save one of your trained `scikit-learn` models. Create a simple web API using a framework like Flask or FastAPI that can load the model and make predictions based on user input.</p>
+            </div>
+            <div class="lesson">
+                <h4 class="lesson-title">Lesson 10.2: Containerization with Docker</h4>
+                <p><strong>Theory:</strong> Grasp the purpose of containerization for creating reproducible environments. Learn how a `Dockerfile` defines the steps to build a self-contained application image.</p>
+                <p><strong>Recommended Resource:</strong> <a class="resource-link" href="https://docker-curriculum.com/" target="_blank">Docker for Beginners</a></p>
+                <p><strong>Practice:</strong> Write a Dockerfile to containerize your Flask/FastAPI application. Build the image and run it locally to ensure your model is served correctly from a container.</p>
+            </div>
+            <div class="project-goal">
+                <h4>🎯 End-of-Chapter Project: Productionize a Scikit-Learn Model</h4>
+                <p><strong>Goal:</strong> Deploy your `scikit-learn` model as a containerized web service. This project bridges the gap between a trained model and a production-ready application.</p>
+                <p><strong>Detailed Steps:</strong></p>
+                <ul>
+                    <li><strong>1. Choose a Model:</strong> Select a simple `scikit-learn` classification model (e.g., Logistic Regression on the Iris dataset).</li>
+                    <li><strong>2. Create a Web API:</strong> Write a Flask or FastAPI application with a single endpoint that accepts input data and returns a prediction from your loaded model.</li>
+                    <li><strong>3. Write a Dockerfile:</strong> Create a Dockerfile that installs all necessary Python dependencies and copies your application code into the container.</li>
+                    <li><strong>4. Build and Run:</strong> Build the Docker image and run the container, exposing the application port. Test the endpoint using `curl` or a browser to ensure it works as expected.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <!-- New Phase 5 -->
+    <div class="roadmap-section" id="phase5">
+        <h2 class="phase-title">Phase 5: Advanced Topics & Specialization</h2>
+        <p style="text-align: center; font-style: italic;">"From a practitioner to an innovator."</p>
+
+        <div class="chapter-card">
+            <h3 class="chapter-title">Chapter 11: Reinforcement Learning</h3>
+            <img src="https://via.placeholder.com/800x200?text=Reinforcement+Learning" alt="Chapter 11 Image">
+            <div class="lesson">
+                <h4 class="lesson-title">Lesson 11.1: Q-Learning & Policy Gradients from Scratch</h4>
+                <p><strong>Theory:</strong> Understand the core components of an RL system: agent, environment, state, action, and reward. Learn the Q-learning update rule and the basic idea behind policy gradients, where the model directly learns the best policy.</p>
+                <p><strong>Recommended Resource:</strong> <a class="resource-link" href="https://github.com/Srajan-Saini/Reinforcement-Learning-From-Scratch" target="_blank">Practical Reinforcement Learning: Q-learning from Scratch</a></p>
+                <p><strong>Practice:</strong> Implement the Q-table and the Q-learning update rule to train an agent in a simple grid world. Implement the policy gradient algorithm for a simple environment.</p>
+            </div>
+            <div class="lesson">
+                <h4 class="lesson-title">Lesson 11.2: Deep Q-Networks (DQN)</h4>
+                <p><strong>Theory:</strong> Combine deep learning with reinforcement learning. Understand how a neural network can approximate the Q-table, enabling an agent to tackle more complex, high-dimensional environments like games.</p>
+                <p><strong>Recommended Resource:</strong> <a class="resource-link" href="https://www.geeksforgeeks.org/deep-q-learning-from-scratch-in-pytorch/" target="_blank">GeeksforGeeks: DQN from Scratch (Pytorch)</a></p>
+                <p><strong>Practice:</strong> Implement a simple DQN agent to solve a classic OpenAI Gym environment like CartPole. Use your knowledge of PyTorch to build the Q-network and the training loop.</p>
+            </div>
+            <div class="project-goal">
+                <h4>🎯 End-of-Chapter Project: Build a NumPy-only Agent for Pong</h4>
+                <p><strong>Goal:</strong> Create a neural network-based agent that learns to play the game Pong using raw pixel data and only NumPy. This project integrates computer vision, deep learning, and reinforcement learning from first principles.</p>
+                <p><strong>Recommended Resource:</strong> <a class="resource-link" href="https://karpathy.github.io/2016/05/31/rl/" target="_blank">GitHub: Pong from Pixels</a></p>
+                <p><strong>Detailed Steps:</strong></p>
+                <ul>
+                    <li><strong>1. Environment Setup:</strong> Use the <code>gym</code> library (or similar) to create the Pong environment. Understand the observation space (raw pixels) and action space (paddle movement).</li>
+                    <li><strong>2. Preprocessing:</strong> Write a function to preprocess the raw pixel data from the game screen. This typically involves cropping the screen, downsampling the image, and converting it to grayscale to reduce dimensionality.</li>
+                    <li><strong>3. Network Architecture:</strong> Design a simple neural network using NumPy arrays. The input layer will take the preprocessed pixel data, and the output layer will represent the actions (e.g., up or down).</li>
+                    <li><strong>4. Training Loop:</strong> Implement the training loop from scratch. This includes: feeding the preprocessed pixels to your network, choosing an action, taking a step in the environment, and then using the resulting reward and state to perform a backpropagation step to update your network's weights.</li>
+                    <li><strong>5. Evaluation:</strong> After training, run the agent in the environment without further training to see how well it learned to play Pong.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="chapter-card">
+            <h3 class="chapter-title">Chapter 12: Generative AI & The Future</h3>
+            <img src="https://via.placeholder.com/800x200?text=Generative+AI" alt="Chapter 12 Image">
+            <div class="lesson">
+                <h4 class="lesson-title">Lesson 12.1: VAEs from Scratch</h4>
+                <p><strong>Theory:</strong> Understand the concept of Variational Autoencoders (VAEs). Learn how an encoder maps input data to a latent space and a decoder reconstructs it, and how the "variational" part of the model allows for smooth, continuous latent representations that enable generation.</p>
+                <p><strong>Recommended Resource:</strong> <a class="resource-link" href="https://blog.keras.io/building-autoencoders-in-keras.html" target="_blank">Keras: Building Autoencoders</a></p>
+                <p><strong>Practice:</strong> Implement a VAE using a deep learning framework like PyTorch or TensorFlow. Train it on a simple image dataset and then generate new, novel images by sampling from the latent space.</p>
+            </div>
+            <div class="lesson">
+                <h4 class="lesson-title">Lesson 12.2: The Transformer Architecture</h4>
+                <p><strong>Theory:</strong> Go deeper into the Transformer architecture. Understand the self-attention mechanism, multi-head attention, and positional encoding. Grasp how this architecture, originally for machine translation, became the foundation for large language models (LLMs) and diffusion models.</p>
+                <p><strong>Recommended Resource:</strong> <a class="resource-link" href="http://jalammar.github.io/illustrated-transformer/" target="_blank">The Illustrated Transformer</a></p>
+                <p><strong>Practice:</strong> No coding is required in this lesson. The focus is on understanding the core concepts. Create a detailed diagram explaining the flow of data through a Transformer block with a focus on the attention mechanism.</p>
+            </div>
+            <div class="project-goal">
+                <h4>🎯 End-of-Chapter Project: Build a Character-Level Text Generator</h4>
+                <p><strong>Goal:</strong> Implement a small-scale, character-level text generator using an RNN and the attention mechanism. This project will combine your knowledge of sequential models and attention to generate coherent text.</p>
+                <p><strong>Detailed Steps:</strong></p>
+                <ul>
+                    <li><strong>1. Data Preparation:</strong> Choose a small text corpus (e.g., a few hundred lines of a classic novel). Create a vocabulary of all unique characters and map each character to an integer.</li>
+                    <li><strong>2. Model Architecture:</strong> Build a recurrent neural network with an attention mechanism on top. The RNN will process the input sequence, and the attention mechanism will help the model focus on relevant characters in the input to predict the next one.</li>
+                    <li><strong>3. Training Loop:</strong> Train your model to predict the next character in a sequence. You'll pass sequences of characters as input and the next character as the target.</li>
+                    <li><strong>4. Text Generation:</strong> After training, write a function that takes a "seed" sequence of characters and iteratively generates new text one character at a time, using the model's predictions as input for the next step.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>&copy; 2025 AI Engineer Roadmap. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
